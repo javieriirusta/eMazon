@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    width: 100%;
+    position: absolute;
+}
+
+header {
+    height: 12%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    opacity: 70%;
+    padding: 10px 20px;
+    color: white;
+}
+
+header .logo h1 {
+    margin: 0px;
+}
+.carrito {
+    justify-content: center;
+    top: 0;
+    right: 0;
+    float: right;
+    margin-right:40px;
+}
+.carrito a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.carrito img {
+    height: 35px;
+    width: 35px;
+}
+
+.carritoLateral {
+    margin: 0 auto;
+    width: 40%;
+    height: 100%;
+    padding: 15px;
+    position: fixed;
+    right: 0px;
+    top: 12%;
+    display: none;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s;
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+}
+
+#element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background-color: rgb(112, 107, 107);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#elementNombre {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: bold;
+    }
+
+#elementCantidad {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    margin-top: 5px;
+
+}
+
+#elementImagen {
+    height: 50px;
+}
+
+#vaciarCarrito {
+    float: right;
+    padding: 5px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+}
+
+#comprarProducto {
+    float: right;
+    padding: 5px;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    margin-top: 10%;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    transition-property: width;
+    transition-duration: 0.5s;
+}
+
+.product-item img {
+    width: 90%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.product-item p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.product-item .precio {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-item button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-item button:hover {
+    background-color: #555;
+}
+

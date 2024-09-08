@@ -8,8 +8,27 @@
     <link rel="icon" type="image/png" sizes="16x16"  href="favicon.png">
 </head>
 <body>
+    <div id="confirmarCompra" style="opacity:0; transition: all 1s;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        ¡Muchas gracias por tu compra!
+        <br>
+        <br>
+        <br>
+        Resumen de compra:
+        <br>
+        <br>
+        <div id="resumenCompra">
+        </div>
+        <br>
+        <div id="totalCompra"></div>
+    </div>
     <!-- Header con barra de navegación y carrito -->
-    <header>
+    <header id="header">
         <div class="logo">
             <h1 id="logo"><text style="color:red">e</text><text style="color:blue">M</text><text style="color:yellow">a</text><text style="color:greenyellow">zon</text></h1>
             
@@ -18,9 +37,14 @@
         <div id="carritoIcono" class="carrito">
             <img src="carritoblanco.png"\><br>(<text id="cantidadCarrito"></text>)
     </header>
-    <div id="carritoLateral" class="carritoLateral">
+    <div id="carritoLateral" style="opacity:0;">
+    <div id="botonVaciar"></div>
+    <div id="botonComprar"></div>
+    <br>
+    <br>
     <div id="carritoOculto">No hay elementos en el carrito
-    </div><div id="botonVaciar"></div>
+    </div>
+    
     </div>
     <!-- Grilla de productos -->
     <section class="product-grid">

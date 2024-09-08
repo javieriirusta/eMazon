@@ -83,16 +83,24 @@ class carrito {
         const elementImagen = document.createElement("img");
         const elementCantidad = document.createElement("div");
         element.id = "element";
-        elementNombre.id = "elementNombre";
-        elementCantidad.id = "elementCantidad";
+        elementNombre.id = producto.nombre+"-id";
+        elementCantidad.id = producto.nombre +"elementCantidad";
         elementImagen.id = "elementImagen";
         elementImagen.src = producto.imagen + '.jpg';
         elementNombre.textContent = producto.nombre;
         elementCantidad.textContent = producto.cantidad;
+        const verificacion = document.getElementById(producto.nombre+"-id");
+        const actualizarNumero = document.getElementById(producto.nombre+"elementCantidad");
+        if (!verificacion) {
         nombreProducto.appendChild(element);
         element.appendChild(elementNombre);
         element.appendChild(elementImagen);
         element.appendChild(elementCantidad);
+        }
+        else {
+            actualizarNumero.textContent = '';
+            actualizarNumero.textContent = producto.cantidad;
+        }
      }
     botonVaciarCarrito() {
             const botonVaciar = document.getElementById("botonVaciar");
@@ -112,17 +120,49 @@ class carrito {
                 comprarBoton = document.createElement("button");
                 comprarBoton.id = "comprarProducto";
                 comprarBoton.textContent = "Comprar";
+                botonComprar.onclick = () => this.comprarProducto();
                 botonComprar.appendChild(comprarBoton);
         }
     }
+    comprarProducto() {
+        const resumenCompra = document.getElementById("resumenCompra");
+        let total = 0;
+        for (let producto of this.carrito) {
+            const verificar = document.getElementById(producto.nombre);
+            if (!verificar) {
+            let subtotal = producto.cantidad*producto.precio;
+            total = total + subtotal;
+            const listaProductos = document.createElement("li");
+            listaProductos.id = producto.nombre;
+            listaProductos.style.listStyle = "none";
+            listaProductos.textContent = `${producto.nombre} X${producto.cantidad} Precio = $${producto.precio}`;
+            resumenCompra.appendChild(listaProductos);
+            }
+        }
+        const totalCompra = document.getElementById("totalCompra");
+        totalCompra.textContent = `Total: $${total}`;
+            const confirmarCompra = document.getElementById("confirmarCompra");
+            const header = document.getElementById("header");
+            const carritoLateral = document.getElementById("carritoLateral");
+                if (confirmarCompra.style.opacity = "0") {
+                    confirmarCompra.style.visibility = "visible";
+                    confirmarCompra.style.opacity = "1";
+                    header.style.opacity = "0";
+                    carritoLateral.style.opacity = "0";
+                }
+                else {
+                    confirmarCompra.style.opacity = "0";
+                    confirmarCompra.style.display = "none";
+                }
+        }
     actualizarCantidadCarrito() {
         document.getElementById("cantidadCarrito").innerHTML = this.cantidad;
     }
     borrarTodo() {
         document.getElementById("carritoOculto").innerHTML = 'No hay elementos en el carrito';
         document.getElementById("botonVaciar").innerHTML = '';
+        document.getElementById("botonComprar").innerHTML = '';
     }
-    
 }
 // Creo el carrito mediante un objeto, no es necesario definir más carritos.
 
@@ -141,14 +181,14 @@ cantidadCarrito();
 function mostrarCarrito() {
     const iconoCarrito = document.getElementById("carritoIcono");
     const carritoOculto = document.getElementById("carritoLateral");
-    iconoCarrito.addEventListener('click', () => {
-        if (carritoOculto.style.opacity === '0') {
-            carritoOculto.style.display = 'block';
-            carritoOculto.style.opacity = '1';
+    iconoCarrito.addEventListener("click", () => {
+        if (carritoOculto.style.opacity === "0") {
+            carritoOculto.style.opacity = "1";
+            carritoOculto.style.visibility = "visible";
         }
         else {
-            carritoOculto.style.opacity = '0';
-            carritoOculto.style.display = 'none';
+            carritoOculto.style.opacity = "0";
+            carritoOculto.style.visibility = "hidden";
         }
     })
 }
